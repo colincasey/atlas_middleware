@@ -18,6 +18,7 @@ begin
     gem.add_dependency('httparty', '>= 0.4.5')
     gem.add_dependency('activesupport', '>= 2.3.4')
     gem.add_dependency('arcserver.rb', ">= 0.1.1")
+    # gem.add_dependency('validatable', ">= 1.6.7") - used by print_map_service which isn't ready for production yet
     gem.add_development_dependency('shoulda', '>= 2.10.2')
     gem.add_development_dependency('mocha', '>= 0.9.8')
     gem.add_development_dependency('rack-test', '>= 0.4.1')

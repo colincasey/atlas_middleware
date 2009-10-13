@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{atlas_middleware}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Colin Casey"]
@@ -17,8 +17,10 @@ Gem::Specification.new do |s|
      "README"
   ]
   s.files = [
-    "lib/atlas_middleware.rb",
+    "lib/arcgis_server_rest_proxy.rb",
+     "lib/atlas_middleware.rb",
      "lib/cgns_search.rb",
+     "lib/export_map_services.rb",
      "lib/map_server_legend_info.rb",
      "lib/postal_code_lookup.rb",
      "lib/print_map/job.rb",
@@ -26,8 +28,7 @@ Gem::Specification.new do |s|
      "lib/print_map/map_exporter.rb",
      "lib/print_map/pdf_generator.rb",
      "lib/print_map/worker.rb",
-     "lib/print_map_service.rb",
-     "lib/rest_proxy.rb"
+     "lib/print_map_service.rb"
   ]
   s.homepage = %q{http://github.com/colincasey/atlas_middleware}
   s.rdoc_options = ["--charset=UTF-8"]
