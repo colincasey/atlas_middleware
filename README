@@ -2,7 +2,7 @@
 
 Rack middleware components to support NBADW Atlas maps.
 
-Include the following:
+Includes the following:
 * Place Name Search
   Powered by Natural Resources Canada's CGNS (Canadian Geographical Names Service), an
   on-line web service providing information about Canada's geographical names including
@@ -11,6 +11,11 @@ Include the following:
 * Postal Code Lookup
   Powered by the CGDI Postal Code Lookup Service which returns geometries for known forward
   sortation area (FSA) postal codes.
+
+* ArcGIS Server REST Proxy
+  Provides proxied access to ESRI's ArcGIS Server 9.3 REST interface.  Useful for
+  handling XHR requests without having to worry about the same origin security policy
+  enforced by browsers.
 
 * ESRI Map Server Legend Generator
   

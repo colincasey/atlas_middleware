@@ -1,7 +1,7 @@
 require 'rack'
 require 'httparty'
 
-class RestProxy
+class ArcgisServerRestProxy
   def call(env)
     request = Rack::Request.new(env)
     url = request.params.delete('url')

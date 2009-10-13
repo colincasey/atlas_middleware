@@ -17,26 +17,19 @@ app = Rack::Builder.new do
     use Rack::ShowExceptions
     run PostalCodeLookup.new
   end
-#
-#  map "/print_map" do
-#    use Rack::CommonLogger
-#    use Rack::ShowExceptions
-#    run PrintMapService.new
-#  end
-#
-#  map "/arcserver" do
-#    map "/soap" do
-#      use Rack::CommonLogger
-#      use Rack::ShowExceptions
-#      run ArcServerSoap.new
-#    end
-#
-#    map "/rest" do
-#      use Rack::CommonLogger
-#      use Rack::ShowExceptions
-#      run RestProxy.new
-#    end
-#  end
+
+  map "/rest_proxy" do
+    require 'arcgis_server_rest_proxy'
+    use Rack::CommonLogger
+    use Rack::ShowExceptions
+    run ArcgisServerRestProxy.new
+  end
+
+  #  map "/print_map" do
+  #    use Rack::CommonLogger
+  #    use Rack::ShowExceptions
+  #    run PrintMapService.new
+  #  end
 end
 
 puts "running at http://127.0.0.1:9000/"
