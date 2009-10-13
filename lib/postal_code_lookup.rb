@@ -1,5 +1,4 @@
 require 'rack'
-#require 'rack/cache'
 require 'activesupport'
 require 'httparty'
 
@@ -16,22 +15,19 @@ class PostalCodeLookup
   def call(env)
     request = Rack::Request.new(env)
 
-    headers = { "Content-Type" => "text/plain" }
-    r = Rack::Response # shorthand
+    headers = { "Content-Type" => "application/json" }
     begin
-      response = r.new(200, headers, find(request.params['code']))
+      response = Rack::Response.new(find(request.params['code']), 200, headers)
+#      response = maybe_cache_response(response)
     rescue Exception => e
-      response = r.new(500, headers, e.message)
+      response = Rack::Response.new({ :error => e.message }.to_json, 500, headers)
     end
-#    response.max_age = 1.month
 
     response.to_a
   end
 
   def find(code)
-    result = PostalCodeLookup.get('/cgi-bin/postalcode/postalcode.cgi', {
-        :query => { :code => code }
-      })
+    result = PostalCodeLookup.get('/cgi-bin/postalcode/postalcode.cgi', { :query => { :code => code } })
 
     if error = result["ServiceExceptionReport"]
       raise ServiceException.new(error['ServiceException'])
@@ -42,13 +38,24 @@ class PostalCodeLookup
       lng, lat = location["gml:coordinates"].split(',')
       return {
         :postal_code => postal_code["gml:name"],
-        :epsg => epsg,
+        :epsg => epsg.to_i,
         :srs_name => location["srsName"],
-        :latitude => lat,
-        :longitude => lng,
+        :latitude => lat.to_f,
+        :longitude => lng.to_f,
         :placename => postal_code["Placename"],
         :province_or_territory => postal_code["ProvinceOrTerritory"]
       }.to_json
+    end
+  end
+
+  def maybe_cache_response(response)
+    begin
+      # using rack cache
+      cached_response = Rack::Cache::Response.new(response.status, response.headers, response.body)
+      cached_response.max_age = 1.month
+      cached_response
+    rescue
+      response # just return the original response
     end
   end
 end

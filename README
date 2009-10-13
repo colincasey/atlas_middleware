@@ -3,6 +3,14 @@
 Rack middleware components to support NBADW Atlas maps.
 
 Include the following:
+* Place Name Search
+  Powered by Natural Resources Canada's CGNS (Canadian Geographical Names Service), an
+  on-line web service providing information about Canada's geographical names including
+  location, status, classification and other details with each official geographical name.
+
 * Postal Code Lookup
-* CGNS Place Name Search
+  Powered by the CGDI Postal Code Lookup Service which returns geometries for known forward
+  sortation area (FSA) postal codes.
+
 * ESRI Map Server Legend Generator
+  

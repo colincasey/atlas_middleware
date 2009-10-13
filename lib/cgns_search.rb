@@ -1,5 +1,4 @@
 require 'rack'
-#require 'rack/cache'
 require 'activesupport'
 require 'httparty'
 
@@ -13,18 +12,29 @@ class CgnsSearch
     request = Rack::Request.new(env)
 
     headers = { "Content-Type" => "application/json" }
-    r = Rack::Response
     begin
-      response = r.new(find(request.params), 200, headers)
+      response = Rack::Response.new(find(request.params), 200, headers)
+      response = maybe_cache_response(response)
     rescue Exception => e
-      response = r.new(e.message, 500, headers)
+      response = Rack::Response.new({ :error => e.message }.to_json, 500, headers)
     end
-    #response.max_age = 1.month
     
     response.to_a
   end
-  
+
+  private
   def find(query = {})
     CgnsSearch.get('/gnss-srt/api', { :query => query }).to_json
+  end
+
+  def maybe_cache_response(response)
+    begin
+      # using rack cache
+      cached_response = Rack::Cache::Response.new(response.status, response.headers, response.body)
+      cached_response.max_age = 1.month
+      cached_response
+    rescue
+      response # just return the original response
+    end
   end
 end
