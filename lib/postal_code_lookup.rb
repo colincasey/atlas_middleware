@@ -18,7 +18,7 @@ class PostalCodeLookup
     headers = { "Content-Type" => "application/json" }
     begin
       response = Rack::Response.new(find(request.params['code']), 200, headers)
-#      response = maybe_cache_response(response)
+      response = maybe_cache_response(response)
     rescue Exception => e
       response = Rack::Response.new({ :error => e.message }.to_json, 500, headers)
     end

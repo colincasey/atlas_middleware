@@ -25,6 +25,13 @@ app = Rack::Builder.new do
     run ArcgisServerRestProxy.new
   end
 
+  map "/legends" do
+    require 'map_server_legend_info'
+    use Rack::CommonLogger
+    use Rack::ShowExceptions
+    run MapServerLegendInfo.new
+  end
+
   #  map "/print_map" do
   #    use Rack::CommonLogger
   #    use Rack::ShowExceptions

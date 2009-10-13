@@ -3,6 +3,7 @@
 Rack middleware components to support NBADW Atlas maps.
 
 Includes the following:
+
 * Place Name Search
   Powered by Natural Resources Canada's CGNS (Canadian Geographical Names Service), an
   on-line web service providing information about Canada's geographical names including
@@ -17,5 +18,7 @@ Includes the following:
   handling XHR requests without having to worry about the same origin security policy
   enforced by browsers.
 
-* ESRI Map Server Legend Generator
+* MapServer Legend Info
+  Uses ArcGIS Server's SOAP API to load legend information (layer names and symbols)
+  for MapServer services.
   
