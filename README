@@ -1,3 +1,8 @@
 == Atlas Middleware
 
-You should document your project here.
+Rack middleware components to support NBADW Atlas maps.
+
+Include the following:
+* Postal Code Lookup
+* CGNS Place Name Search
+* ESRI Map Server Legend Generator
