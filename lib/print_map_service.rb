@@ -1,3 +1,4 @@
+require 'activesupport'
 require 'print_map/job'
 require 'print_map/worker'
 

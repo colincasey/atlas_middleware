@@ -1,3 +1,4 @@
+require 'rack'
 require 'arcserver'
 require 'activesupport'
 

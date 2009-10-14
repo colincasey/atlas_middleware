@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{atlas_middleware}
-  s.version = "0.0.3"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Colin Casey"]
-  s.date = %q{2009-10-13}
+  s.date = %q{2009-10-14}
   s.description = %q{Middleware components for Atlas Projects}
   s.email = %q{casey.colin@gmail.com}
   s.extra_rdoc_files = [
@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     "lib/arcgis_server_rest_proxy.rb",
-     "lib/atlas_middleware.rb",
      "lib/cgns_search.rb",
      "lib/export_map_services.rb",
      "lib/map_server_legend_info.rb",
@@ -51,7 +50,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<rack>, [">= 1.0.0"])
       s.add_runtime_dependency(%q<httparty>, [">= 0.4.5"])
       s.add_runtime_dependency(%q<activesupport>, [">= 2.3.4"])
-      s.add_runtime_dependency(%q<arcserver.rb>, [">= 0.1.1"])
+      s.add_runtime_dependency(%q<arcserver.rb>, [">= 0.1.2"])
       s.add_development_dependency(%q<shoulda>, [">= 2.10.2"])
       s.add_development_dependency(%q<mocha>, [">= 0.9.8"])
       s.add_development_dependency(%q<rack-test>, [">= 0.4.1"])
@@ -59,7 +58,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rack>, [">= 1.0.0"])
       s.add_dependency(%q<httparty>, [">= 0.4.5"])
       s.add_dependency(%q<activesupport>, [">= 2.3.4"])
-      s.add_dependency(%q<arcserver.rb>, [">= 0.1.1"])
+      s.add_dependency(%q<arcserver.rb>, [">= 0.1.2"])
       s.add_dependency(%q<shoulda>, [">= 2.10.2"])
       s.add_dependency(%q<mocha>, [">= 0.9.8"])
       s.add_dependency(%q<rack-test>, [">= 0.4.1"])
@@ -68,7 +67,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rack>, [">= 1.0.0"])
     s.add_dependency(%q<httparty>, [">= 0.4.5"])
     s.add_dependency(%q<activesupport>, [">= 2.3.4"])
-    s.add_dependency(%q<arcserver.rb>, [">= 0.1.1"])
+    s.add_dependency(%q<arcserver.rb>, [">= 0.1.2"])
     s.add_dependency(%q<shoulda>, [">= 2.10.2"])
     s.add_dependency(%q<mocha>, [">= 0.9.8"])
     s.add_dependency(%q<rack-test>, [">= 0.4.1"])
