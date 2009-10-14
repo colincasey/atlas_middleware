@@ -1,5 +1,0 @@
-require 'rack'
-#require 'rack/cache'
-require 'activesupport'
-require 'json'
-require 'json/add/rails'
