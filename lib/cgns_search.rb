@@ -3,6 +3,7 @@ require 'activesupport'
 require 'httparty'
 
 class CgnsSearch
+  ALLOWED_PARAMS = %w(geoname)
   include HTTParty
   base_uri "gnss.nrcan.gc.ca"
   default_params :output => 'xml', :regionCode => 13
@@ -25,6 +26,7 @@ class CgnsSearch
 
   private
   def find(query = {})
-    CgnsSearch.get('/gnss-srt/api', { :query => query }).to_json
+    safe_query = query.delete_if { |key,value| !ALLOWED_PARAMS.include?(key) }
+    CgnsSearch.get('/gnss-srt/api', { :query => safe_query }).to_json
   end
 end
