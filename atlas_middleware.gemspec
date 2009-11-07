@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{atlas_middleware}
-  s.version = "0.0.4"
+  s.version = "0.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Colin Casey"]
-  s.date = %q{2009-10-14}
+  s.date = %q{2009-11-07}
   s.description = %q{Middleware components for Atlas Projects}
   s.email = %q{casey.colin@gmail.com}
   s.extra_rdoc_files = [
@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
     "lib/arcgis_server_rest_proxy.rb",
      "lib/cgns_search.rb",
      "lib/export_map_services.rb",
+     "lib/ignore_ext_js_cache_buster.rb",
      "lib/map_server_legend_info.rb",
      "lib/postal_code_lookup.rb",
      "lib/print_map/job.rb",
@@ -33,7 +34,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.requirements = ["ImageMagick bindings:", "If using Ruby - gem install rmagick (2.11.0)", "If using JRuby - gem install rmagick4j (0.3.7)"]
-  s.rubygems_version = %q{1.3.4}
+  s.rubygems_version = %q{1.3.5}
   s.summary = %q{Middleware components for Atlas Projects}
   s.test_files = [
     "test/test_helper.rb",

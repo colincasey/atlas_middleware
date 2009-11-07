@@ -1,13 +1,17 @@
 $:.unshift File.dirname(__FILE__)
 require 'rubygems'
 require 'rack'
+require 'rack/cache'
+require 'ignore_ext_js_cache_buster'
 
 # configure the application
 app = Rack::Builder.new do
   map "/cgns" do
     require 'cgns_search'
+    use IgnoreExtJsCacheBuster
     use Rack::CommonLogger
     use Rack::ShowExceptions
+    use Rack::Cache
     run CgnsSearch.new
   end
 
@@ -22,6 +26,7 @@ app = Rack::Builder.new do
     require 'arcgis_server_rest_proxy'
     use Rack::CommonLogger
     use Rack::ShowExceptions
+    use Rack::Cache
     run ArcgisServerRestProxy.new
   end
 
