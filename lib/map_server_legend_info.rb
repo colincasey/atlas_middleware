@@ -10,7 +10,7 @@ class MapServerLegendInfo
     begin
       response = Rack::Response.new(get_legends(request), 200, headers)
       # set caching information
-      response.headers['Cache-Control'] = "public, max-age=#{30.minutes}"
+      response.headers['Cache-Control'] = "public, max-age=#{1.month}"
     rescue Exception => e
       response = Rack::Response.new({ :error => e.message }.to_json, 500, headers)
     end
@@ -21,8 +21,8 @@ class MapServerLegendInfo
   private
   def get_legends(request)
     map_server = ArcServer::MapServer.new(request['url'])
-    map_name = map_server.get_default_map_name
-    legend = map_server.get_legend_info(:map_name => map_name, :image_return_url => true)
+    image_return_url = request['image_return_url'] == 'true'
+    legend = map_server.get_legend_info(:image_return_url => image_return_url)
     legend.to_json
   end
 end

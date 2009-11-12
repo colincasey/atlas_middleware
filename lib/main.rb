@@ -37,6 +37,13 @@ app = Rack::Builder.new do
     run MapServerLegendInfo.new
   end
 
+  map "/decode" do
+    require 'decode_base64_image'
+    use Rack::CommonLogger
+    use Rack::ShowExceptions
+    run DecodeBase64Image.new
+  end
+
   #  map "/print_map" do
   #    use Rack::CommonLogger
   #    use Rack::ShowExceptions

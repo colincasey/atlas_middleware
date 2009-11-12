@@ -1,5 +1,4 @@
 # encoding: utf-8
-
 class IgnoreExtJsCacheBuster
   def initialize(app, cache_param = '_dc')
     @app = app
