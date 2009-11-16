@@ -10,7 +10,8 @@ class MapServerLegendInfo
     begin
       response = Rack::Response.new(get_legends(request), 200, headers)
       # set caching information
-      response.headers['Cache-Control'] = "public, max-age=#{1.month}"
+      age = request['image_return_url'] == 'true' ? 20.minutes : 1.month
+      response.headers['Cache-Control'] = "public, max-age=#{age}"
     rescue Exception => e
       response = Rack::Response.new({ :error => e.message }.to_json, 500, headers)
     end

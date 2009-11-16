@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{atlas_middleware}
-  s.version = "0.0.7"
+  s.version = "0.0.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Colin Casey"]
-  s.date = %q{2009-11-12}
+  s.date = %q{2009-11-16}
   s.description = %q{Middleware components for Atlas Projects}
   s.email = %q{casey.colin@gmail.com}
   s.extra_rdoc_files = [
